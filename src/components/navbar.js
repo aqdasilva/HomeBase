@@ -1,22 +1,112 @@
-import { Drawer, List, ListItem, ListItemText } from '@material-ui/core';
+import React, { useState } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Avatar,
+  Box,
+  Divider,
+  IconButton,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  makeStyles,
+  CssBaseline,
+  Drawer,
+  Typography
+} from "@material-ui/core";
+import {
+  Apps,
+  Menu,
+  ContactMail,
+  AssignmentInd,
+  Home
+} from "@material-ui/icons";
 
-function Sidebar({ open, onClose }) {
-    return (
-      <Drawer open={open} onClose={onClose}>
-        <List>
-          <ListItem button>
-            <ListItemText primary="Home" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="About" />
-          </ListItem>
-          <ListItem button>
-            <ListItemText primary="Contact" />
-          </ListItem>
-        </List>
-      </Drawer>
-    );
+const useStyles = makeStyles((theme) => ({
+  menuSliderContainer: {
+    width: 250,
+    background: "#511",
+    height: "100%"
+  },
+  avatar: {
+    margin: "0.5rem auto",
+    padding: "1rem",
+    width: theme.spacing(13),
+    height: theme.spacing(13)
+  },
+  listItem: {
+    color: "tan"
   }
+}));
+
+const listItems = [
+  {
+    listIcon: <Home />,
+    listText: "Home"
+  },
+  {
+    listIcon: <AssignmentInd />,
+    listText: "Resume"
+  },
+  {
+    listIcon: <Apps />,
+    listText: "Portfolio"
+  },
+  {
+    listIcon: <ContactMail />,
+    listText: "Contacts"
+  }
+];
+
+function Sidebar() {
+  const classes = useStyles();
+  const [open, setOpen] = useState(false);
+
+  const toggleSlider = () => {
+    setOpen(!open);
+  };
+
+  const sideList = () => (
+    <Box className={classes.menuSliderContainer} component="div">
+      <Avatar
+        className={classes.avatar}
+        src="https://i.ibb.co/rx5DFbs/avatar.png"
+        alt="Juaneme8"
+      />
+      <Divider />
+      <List>
+        {listItems.map((listItem, index) => (
+          <ListItem className={classes.listItem} button key={index}>
+            <ListItemIcon className={classes.listItem}>
+              {listItem.listIcon}
+            </ListItemIcon>
+            <ListItemText primary={listItem.listText} />
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  return (
+    <>
+      <CssBaseline />
+
+      <Box component="nav">
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton onClick={toggleSlider}>
+              <Menu />
+            </IconButton>
+            <Typography>Portfolio</Typography>
+            <Drawer open={open} anchor="right" onClose={toggleSlider}>
+              {sideList()}
+            </Drawer>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </>
+  );
+}
 
 export default Sidebar;
-  

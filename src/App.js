@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
-import { Drawer } from '@material-ui/core';
+import React from 'react';
 import Sidebar from './components/navbar';
 
-function App() {
-  const [open, setOpen] = useState(false);
 
-  return (
-    <div>
-      <button onClick={() => setOpen(!open)}>Open/Close Sidebar</button>
-      <Drawer open={open} onClose={() => setOpen(false)}>
-        <Sidebar />
-      </Drawer>
-    </div>
-  );
-}
+  function App() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          Good
+          <Sidebar />
+        </header>
+      </div>
+    );
+  }
+
 export default App;
