@@ -28,7 +28,8 @@ const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
     width: 250,
     background: "#9c730b",
-    height: "100%"
+    height: "100%",
+    border: '4px solid black',
   },
   avatar: {
     margin: "0.5rem auto",
@@ -40,7 +41,8 @@ const useStyles = makeStyles((theme) => ({
     color: "black"
   },
   appbar: {
-    background: '#9c730b'
+    background: '#9c730b',
+    border: '4px solid black',
   },
 }));
 

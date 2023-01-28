@@ -11,9 +11,15 @@ import { TbBrandJavascript } from "react-icons/tb";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    position: 'fixed',
+    bottom: 0,
+    left: '50%',
+    transform: 'translateX(-50%)',
     width: '100%',
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
+    textAlign: 'center',
+    backgroundColor: "#9c730b",
+    border: '4px solid black',
+    padding: theme.spacing(2),
   },
   title: {
     fontSize: 24,

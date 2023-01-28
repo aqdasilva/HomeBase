@@ -2,7 +2,6 @@ import React from 'react';
 import Sidebar from './components/navbar';
 import TechStack from './components/techStack';
 
-
   function App() {
     return (
       <div className="App">
