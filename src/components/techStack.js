@@ -4,9 +4,10 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import JavaScriptIcon from '@material-ui/icons/Language';
-import JavaIcon from '@material-ui/icons/LibraryBooks';
-import PHPIcon from '@material-ui/icons/Code';
+import { SiPhp } from "react-icons/si";
+import { FaReact, FaJava} from "react-icons/fa";
+import { TbBrandJavascript } from "react-icons/tb";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,25 +31,25 @@ function TechStack() {
       <List component="nav" aria-label="main mailbox folders">
         <ListItem button>
           <ListItemIcon>
-            <JavaScriptIcon />
+            <TbBrandJavascript style={{ fontSize: 38 }} />
           </ListItemIcon>
           <ListItemText primary="JavaScript" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <JavaIcon />
+            <FaJava style={{ fontSize: 38 }}  />
           </ListItemIcon>
           <ListItemText primary="Java" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <PHPIcon />
+            <SiPhp style={{ fontSize: 38 }}  />
           </ListItemIcon>
           <ListItemText primary="PHP" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            
+            <FaReact style={{ fontSize: 38 }}  />
           </ListItemIcon>
           <ListItemText primary="React" />
         </ListItem>
