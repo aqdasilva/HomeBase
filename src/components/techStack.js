@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     bottom: 0,
     left: '50%',
     transform: 'translateX(-50%)',
-    width: '100%',
     textAlign: 'center',
     backgroundColor: "#9c730b",
     border: '4px solid black',

@@ -22,6 +22,8 @@ import {
   AssignmentInd,
   Home
 } from "@material-ui/icons";
+import AccountMenu from "./profileMenu";
+import DropdownMenu from "./dropdownmenu";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -103,8 +105,8 @@ function Sidebar() {
             <IconButton onClick={toggleSlider}>
               <Menu />
             </IconButton>
-            <Typography variant="h5"> Home Base  </Typography>
-
+            <Typography variant="h5" style={{ color: 'red !important' }}>Home Base</Typography>
+            <DropdownMenu />
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
               {sideList()}
             </Drawer>

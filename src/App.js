@@ -6,7 +6,7 @@ import TechStack from './components/techStack';
     return (
       <div className="App">
         <header className="App-header">
-          <Sidebar />
+          <Sidebar /> 
         </header>
         <div>
           <TechStack />
