@@ -26,7 +26,7 @@ import {
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
     width: 250,
-    background: "#511",
+    background: "#9c730b",
     height: "100%"
   },
   avatar: {
@@ -36,8 +36,11 @@ const useStyles = makeStyles((theme) => ({
     height: theme.spacing(13)
   },
   listItem: {
-    color: "tan"
-  }
+    color: "black"
+  },
+  appbar: {
+    background: '#9c730b'
+  },
 }));
 
 const listItems = [
@@ -93,7 +96,7 @@ function Sidebar() {
       <CssBaseline />
 
       <Box component="nav">
-        <AppBar position="static">
+        <AppBar className={classes.appbar} position="static">
           <Toolbar>
             <IconButton onClick={toggleSlider}>
               <Menu />

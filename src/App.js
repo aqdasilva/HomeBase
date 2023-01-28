@@ -6,7 +6,6 @@ import Sidebar from './components/navbar';
     return (
       <div className="App">
         <header className="App-header">
-          Good
           <Sidebar />
         </header>
       </div>
