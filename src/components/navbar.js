@@ -23,6 +23,7 @@ import {
   Home
 } from "@material-ui/icons";
 
+
 const useStyles = makeStyles((theme) => ({
   menuSliderContainer: {
     width: 250,
@@ -74,8 +75,7 @@ function Sidebar() {
     <Box className={classes.menuSliderContainer} component="div">
       <Avatar
         className={classes.avatar}
-        src="https://i.ibb.co/rx5DFbs/avatar.png"
-        alt="Juaneme8"
+        src="https://i.ibb.co/qMqz8vy/red-knight.png"
       />
       <Divider />
       <List>
@@ -101,7 +101,8 @@ function Sidebar() {
             <IconButton onClick={toggleSlider}>
               <Menu />
             </IconButton>
-            <Typography>Portfolio</Typography>
+            <Typography variant="h5"> Home Base  </Typography>
+
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
               {sideList()}
             </Drawer>
