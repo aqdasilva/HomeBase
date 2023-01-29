@@ -22,8 +22,8 @@ import {
   AssignmentInd,
   Home
 } from "@material-ui/icons";
-
-
+import 'animate.css'; 
+// https://animate.style/
 import DropdownMenu from "./dropdownmenu";
 
 
@@ -47,14 +47,6 @@ const useStyles = makeStyles((theme) => ({
     background: '#9c730b',
     border: '4px solid black',
   },
-  typomotion: {
-    animation: "$moveLeftToRight 2s linear infinite",
-  },
-  "@keyframes moveLeftToRight": {
-    from: { transform: "translateX(0%)" },
-    to: { transform: "translateX(160%)" },
-  },
-
 }));
 
 const listItems = [
@@ -115,7 +107,7 @@ function Sidebar() {
             <IconButton onClick={toggleSlider}>
               <Menu />
             </IconButton>
-            <Typography variant="h5" className={classes.typomotion}>Home Base</Typography>
+            <Typography variant="h5" class="animate__animated animate__rubberBand animate__repeat-3">Home Base</Typography>
             <DropdownMenu />
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
               {sideList()}
