@@ -6,9 +6,13 @@ import Button from '@material-ui/core/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
+    position: 'fixed',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    textAlign: 'center',
+    backgroundColor: "#9c730b",
+    border: '4px solid black',
+    padding: theme.spacing(2),
   }
 }));
 
