@@ -47,6 +47,14 @@ const useStyles = makeStyles((theme) => ({
     background: '#9c730b',
     border: '4px solid black',
   },
+  typomotion: {
+    animation: "$moveLeftToRight 2s linear infinite",
+  },
+  "@keyframes moveLeftToRight": {
+    from: { transform: "translateX(0%)" },
+    to: { transform: "translateX(160%)" },
+  },
+
 }));
 
 const listItems = [
@@ -65,7 +73,8 @@ const listItems = [
   {
     listIcon: <ContactMail />,
     listText: "Contacts"
-  }
+  },
+  
 ];
 
 function Sidebar() {
@@ -106,7 +115,7 @@ function Sidebar() {
             <IconButton onClick={toggleSlider}>
               <Menu />
             </IconButton>
-            <Typography variant="h5" style={{ color: 'red !important' }}>Home Base</Typography>
+            <Typography variant="h5" className={classes.typomotion}>Home Base</Typography>
             <DropdownMenu />
             <Drawer open={open} anchor="right" onClose={toggleSlider}>
               {sideList()}
