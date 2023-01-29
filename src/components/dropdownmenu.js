@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
+import { FormControl, Select } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   }
 }));
+
 
 function DropdownMenu() {
   const classes = useStyles();
@@ -30,6 +32,7 @@ function DropdownMenu() {
 
   return (
     <div className={classes.root}>
+      <FormControl>
       <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
         Barracks
       </Button>
@@ -39,13 +42,19 @@ function DropdownMenu() {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
         transformOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
-        <MenuItem onClick={handleClose}>Link 1</MenuItem>
-        <MenuItem onClick={handleClose}>Link 2</MenuItem>
-        <MenuItem onClick={handleClose}>Link 3</MenuItem>
-        <MenuItem onClick={handleClose}>Link 4</MenuItem>
+          <MenuItem onClick={handleClose}>Link 1</MenuItem>
+          <MenuItem onClick={handleClose}>Link 2</MenuItem>
+          <MenuItem onClick={handleClose}>Link 3</MenuItem>
+          <MenuItem onClick={handleClose}>Link 4</MenuItem>
       </Menu>
+      </FormControl>
+      
     </div>
   );
 }
