@@ -7,7 +7,6 @@ import TechStack from './components/techStack';
 
 
   function App() {
-    const classes = useStyles();
     return (
       <div className="App">
         <Tank />
