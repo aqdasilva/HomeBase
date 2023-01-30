@@ -9,13 +9,16 @@ import TechStack from './components/techStack';
   function App() {
     return (
       <div className="App">
-        <Tank />
-        <header className="App-header">
-          <Sidebar /> 
-        </header>
         <div>
-          <TechStack />
-        </div>     
+           <Tank />
+        </div>
+          <header className="App-header">
+
+            <Sidebar /> 
+          </header>
+          <div>
+            <TechStack />
+          </div>     
       </div>
     );
   }
