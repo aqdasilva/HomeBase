@@ -8,11 +8,19 @@ const useStyles = makeStyles({
     },
     tank: {
         position: 'absolute',
-        top: '0%',
-        left: '0%',
-        transform: 'translate(-50%, -50%)',
-        width: '150px',
-        height: 'auto',
+        top: '-20px',
+        left: 'calc(50% - 50px)',
+        width: '100px',
+        height: '50px',
+        backgroundColor: 'gray',
+      },
+      cannon: {
+        position: 'absolute',
+        top: '20px',
+        left: 'calc(50% - 5px)',
+        width: '10px',
+        height: '30px',
+        backgroundColor: 'black',
       },
   });
 
@@ -26,7 +34,7 @@ function Tank() {
                 <div className={classes.star}></div>
             </div>
             <div className={classes.explostion}></div>
-            <div className={classes.middle}></div>
+            <div className={classes.cannon}></div>
             <div className={classes.bottom}>
                 <ul className={classes.wheels}>
                 </ul>
