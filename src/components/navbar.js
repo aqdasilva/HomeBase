@@ -88,9 +88,9 @@ function Sidebar() {
         src="https://i.ibb.co/qMqz8vy/red-knight.png"
       />
       <Divider />
-      <List>
-        {listItems.map((listItem, index, link) => (
-          <ListItem className={classes.listItem} component={Link} to={link} button key={index}>
+      <List >
+        {listItems.map((listItem, index) => (
+          <ListItem className={classes.listItem}  button key={index}>
             <ListItemIcon className={classes.listItem}>
               {listItem.listIcon}
             </ListItemIcon>
