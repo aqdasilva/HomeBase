@@ -25,6 +25,7 @@ import {
 import 'animate.css'; 
 // https://animate.style/
 import DropdownMenu from "./dropdownmenu";
+import { Link } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -52,21 +53,24 @@ const useStyles = makeStyles((theme) => ({
 const listItems = [
   {
     listIcon: <Home />,
-    listText: "Home"
+    listText: "Home",
+    link: '/home',
   },
   {
     listIcon: <AssignmentInd />,
-    listText: "Resume"
+    listText: "Resume",
+    link: '/resume',
   },
   {
     listIcon: <Apps />,
-    listText: "Portfolio"
+    listText: "Portfolio",
+    link: '/portfolio',
   },
   {
     listIcon: <ContactMail />,
-    listText: "Contacts"
+    listText: "Contacts",
+    link: '/contacts',
   },
-  
 ];
 
 function Sidebar() {
@@ -85,8 +89,8 @@ function Sidebar() {
       />
       <Divider />
       <List>
-        {listItems.map((listItem, index) => (
-          <ListItem className={classes.listItem} button key={index}>
+        {listItems.map((listItem, index, link) => (
+          <ListItem className={classes.listItem} component={Link} to={link} button key={index}>
             <ListItemIcon className={classes.listItem}>
               {listItem.listIcon}
             </ListItemIcon>

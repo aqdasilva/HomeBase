@@ -13,7 +13,6 @@ import TechStack from './components/techStack';
            <Tank />
         </div>
           <header className="App-header">
-
             <Sidebar /> 
           </header>
           <div>
