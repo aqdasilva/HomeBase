@@ -66,5 +66,15 @@ nav {
   left: 0;
 }
 
+@keyframes move-tank {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100px);
+  }
+}
+
+
 
 

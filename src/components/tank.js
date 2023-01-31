@@ -9,18 +9,27 @@ const useStyles = makeStyles({
     tank: {
         position: 'absolute',
         top: '-20px',
-        left: 'calc(50% - 50px)',
         width: '100px',
         height: '50px',
         backgroundColor: 'gray',
+        animation: '$move-tank 8s linear infinite',
+      },
+      '@keyframes move-tank': {
+        '0%': {
+          transform: 'translateX(0%)',
+        },
+        '100%': {
+          transform: 'translateX(1800px)',
+        },
       },
       cannon: {
         position: 'absolute',
         top: '20px',
-        left: 'calc(50% - 5px)',
+        left: '40px',
         width: '10px',
         height: '30px',
         backgroundColor: 'black',
+        animation: '$move-tank 8s linear infinite',
       },
   });
 
