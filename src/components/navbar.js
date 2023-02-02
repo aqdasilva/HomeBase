@@ -25,7 +25,7 @@ import {
 import 'animate.css'; 
 // https://animate.style/
 import DropdownMenu from "./dropdownmenu";
-import { Link } from 'react-router-dom';
+import { Link as RouterLink } from 'react-router-dom';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -90,7 +90,7 @@ function Sidebar() {
       <Divider />
       <List >
         {listItems.map((listItem, index) => (
-          <ListItem className={classes.listItem}  button key={index}>
+          <ListItem className={classes.listItem }  component={RouterLink} to={listItem.link} button key={index}>
             <ListItemIcon className={classes.listItem}>
               {listItem.listIcon}
             </ListItemIcon>
