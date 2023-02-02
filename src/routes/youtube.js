@@ -1,6 +1,6 @@
 import React from 'react'
 
-const youtube = () => {
+const Youtube = () => {
   return (
     <div>
       youtube
@@ -8,4 +8,4 @@ const youtube = () => {
   )
 }
 
-export default youtube;
+export default Youtube;

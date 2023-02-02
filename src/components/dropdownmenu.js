@@ -1,7 +1,8 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Menu from '@material-ui/core/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
+import { Link as RouterLink } from 'react-router-dom';
+import { MenuItem, Link } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { FormControl } from '@material-ui/core';
 
@@ -16,6 +17,14 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(2),
   }
 }));
+
+function MenuItemLink({ to, label, ...props }) {
+  return (
+    <MenuItem component={RouterLink} to={to} {...props}>
+      {label}
+    </MenuItem>
+  );
+}
 
 
 function DropdownMenu() {
@@ -48,10 +57,10 @@ function DropdownMenu() {
         }}
         transformOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
-          <MenuItem onClick={handleClose}>Youtube</MenuItem>
-          <MenuItem onClick={handleClose}>Twitch</MenuItem>
-          <MenuItem onClick={handleClose}>GitHub</MenuItem>
-          <MenuItem onClick={handleClose}>Poshmark</MenuItem>
+          <MenuItemLink onClick={handleClose} to="/youtube" label="youtube"  />
+          <MenuItemLink onClick={handleClose} to="/twitch" label="twitch"  />
+          <MenuItemLink onClick={handleClose} to="/github" label="github" /> 
+          <MenuItemLink onClick={handleClose} to="/poshmark" label="poshmark" />
       </Menu>
       </FormControl>
       
