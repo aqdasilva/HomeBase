@@ -27,6 +27,7 @@ function App() {
           <Route path="/poshmark" element={<Poshmark />} />
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contacts" element={<Contacts />} />
+          <Route path="/home" element={<Mainpage />} />
 
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup setAuth={setAuth} />} />

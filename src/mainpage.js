@@ -1,4 +1,5 @@
 import React from 'react'
+import Enemey from './components/enemey';
 import Sidebar from './components/navbar';
 import Tank from './components/tank';
 import TechStack from './components/techStack';
@@ -14,8 +15,10 @@ const Mainpage = () => {
             </header>
           <div>
             <TechStack />
+            <Enemey />
           </div>
       </div>
+      
 
     );
   }
