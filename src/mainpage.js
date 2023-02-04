@@ -9,13 +9,14 @@ const Mainpage = () => {
       <div className="App">
         <div>
            <Tank />
+           <Enemey />
         </div>
             <header className="App-header">
               <Sidebar />
             </header>
           <div>
             <TechStack />
-            <Enemey />
+
           </div>
       </div>
       
