@@ -1,9 +1,16 @@
-import React from 'react'
-import {BrowserRouter as Link} from "react-router-dom"
+import React from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 const github = () => {
   return (
-    <Link to={{ pathname: "https://github.com/aqdasilva" }} target="_blank">Click to Open My GitHub (new tab)</Link>
+    <div>
+      <Link to={{ pathname: "https://github.com/aqdasilva" }} target="_blank">Click to Open My GitHub (new tab)</Link>
+    </div>
   )
 }
 
