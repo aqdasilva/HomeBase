@@ -13,25 +13,25 @@ const Contacts = () => {
           alt="green iguana"
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography gutterBottom variant="h5" style={{ fontSize: '63px' }} component="div">
             My Contact Information
           </Typography>
-          <Typography variant="subtitle1" color="text.secondary">
+          <Typography variant="subtitle1" style={{ fontSize: '45px' }} color="text.secondary">
             Boston, MA (Willing to relocate for the right position)
           </Typography>
-          <Typography variant="body3" color="text.secondary">
+          <Typography variant="body3" style={{ fontSize: '36px' }} color="text.secondary">
             Antqdasilva@gmail.com
           </Typography>
           <br />
-          <Typography variant="body4" color="text.secondary">
+          <Typography variant="body4" style={{ fontSize: '36px' }} color="text.secondary">
             Discord: Azowr#4520
           </Typography>
           <br />
-          <Typography variant="body5" color="text.secondary">
+          <Typography variant="body5" style={{ fontSize: '36px' }} color="text.secondary">
             GitHub: Aqdasilva
           </Typography>
           <br />
-          <Typography variant="body6" color="text.secondary">
+          <Typography variant="body6" style={{ fontSize: '36px' }} color="text.secondary">
             Playstation: BiigRedAnt
           </Typography>
           <br />
