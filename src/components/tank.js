@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useScroll } from 'framer-motion';
 const useStyles = makeStyles({
     bottom: {
         width: '100%',
@@ -63,6 +64,10 @@ const useStyles = makeStyles({
     const [isShooting, setIsShooting] = useState(false);
     const [isGameOver, setIsGameOver] = useState(false);
     const [squareX, setSquareX] = useState(0);
+    const [ squareY, setSquareY] = useState(0);
+    const [squareWidth, setSquareWidth] = useState(false);
+    const [ squareHeight, setsquareHeight] = useState(false);
+
 
     const handleMouseMove = (event) => {
         setCursorX(event.clientX);
@@ -93,25 +98,32 @@ const useStyles = makeStyles({
         cancelAnimationFrame(animationFrameId);
       };
     }, [isShooting, bulletY]);
-  
     useEffect(() => {
       if (bulletY >= window.innerHeight) {
-        setIsShooting(false);
-        setBulletY(-20);
+          setIsShooting(false);
+          setBulletY(-20);
       }
-    }, [bulletY]);
   
-      return (
-          <div className={classes.wrapper}>
-              <div className={classes.tank}   style={{ left: `${cursorX - 50}px` }}>
-              </div>
-              <div
-                  className={classes.bullet}
-                  style={{ top: `${bulletY}px`, left: `${cursorX - 5}px` }}
-               />
-              <div className={classes.cannon}  style={{ left: `${cursorX - 10}px` }}></div>
-          </div>
-      ) ;  
+      if (bulletY >= squareY && bulletY >= squareX && bulletY <= squareX + squareWidth) {
+          setIsGameOver(true);
+      }
+  }, [bulletY, squareY, squareX, squareWidth]);
+  
+  return (
+      <div className={classes.wrapper}>
+          <div className={classes.tank} style={{ left: `${cursorX - 50}px` }} />
+          <div
+              className={classes.bullet}
+              style={{ top: `${bulletY}px`, left: `${cursorX - 5}px` }}
+          />
+          <div className={classes.cannon} style={{ left: `${cursorX - 10}px` }} />
+          <div
+              className={classes.square}
+              style={{ top: `${squareY}px`, left: `${squareX}px`, width: `${squareWidth}px`, height: `${squareHeight}px` }}
+          />
+          {isGameOver && <div className={classes.gameOver}>Game Over</div>}
+      </div>
+  );
   }
   
   export default  Tank;
