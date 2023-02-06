@@ -37,23 +37,6 @@ const useStyles = makeStyles({
         height: '10px',
         backgroundColor: 'red',
       },
-      square: {
-        position: 'absolute',
-        bottom: '0',
-        left: '0',
-        width: '100px',
-        height: '100px',
-        backgroundColor: 'red',
-        animation: '$move-square 2s ease-in-out infinite alternate',
-    },
-    '@keyframes move-square': {
-        '0%': {
-            transform: 'translateX(0%)',
-        },
-        '100%': {
-            transform: 'translateX(90%)',
-        },
-      }
   });
 
   function Tank() {
@@ -67,6 +50,11 @@ const useStyles = makeStyles({
     const [ squareY, setSquareY] = useState(0);
     const [squareWidth, setSquareWidth] = useState(false);
     const [ squareHeight, setsquareHeight] = useState(false);
+    const [left, setLeft] = useState(0);
+    const [bottom, setBottom] = useState(0);
+    const [direction, setDirection] = useState(1);
+    const [right, setRight] = useState(window.innerWidth);
+
 
 
     const handleMouseMove = (event) => {
@@ -108,6 +96,22 @@ const useStyles = makeStyles({
           setIsGameOver(true);
       }
   }, [bulletY, squareY, squareX, squareWidth]);
+
+  useEffect(() => {
+    setRight(window.innerWidth);
+    const interval = setInterval(() => {
+      setLeft(prevLeft => {
+        if (prevLeft >= right - 50) {
+            setDirection(-1);
+          } else if (prevLeft <= 0) {
+            setDirection(1);
+          }
+          return prevLeft + 10 * direction;
+        });
+    }, 600);
+    return () => clearInterval(interval);
+  }, []);
+
   
   return (
       <div className={classes.wrapper}>
@@ -119,7 +123,8 @@ const useStyles = makeStyles({
           <div className={classes.cannon} style={{ left: `${cursorX - 10}px` }} />
           <div
               className={classes.square}
-              style={{ top: `${squareY}px`, left: `${squareX}px`, width: `${squareWidth}px`, height: `${squareHeight}px` }}
+              style={{ position: "fixed", left: `${left}px`,bottom: `${bottom}px`,
+               width:  "50px", height: "50px", backgroundColor: "blue" }}
           />
           {isGameOver && <div className={classes.gameOver}>Game Over</div>}
       </div>
