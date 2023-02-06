@@ -5,6 +5,7 @@ import { Link as RouterLink } from 'react-router-dom';
 import { MenuItem, Link } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { FormControl } from '@material-ui/core';
+import { Icon } from '@iconify/react';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -57,7 +58,7 @@ function DropdownMenu() {
         }}
         transformOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
-          <MenuItemLink onClick={handleClose} to="/youtube" label="youtube"  />
+          <MenuItemLink startIcon={<Icon icon="line-md:github-loop" color="#9c730b" />} onClick={handleClose} to="/youtube" label="youtube"  />
           <MenuItemLink onClick={handleClose} to="/twitch" label="twitch"  />
           <MenuItemLink onClick={handleClose} to="/github" label="github" /> 
           <MenuItemLink onClick={handleClose} to="/poshmark" label="poshmark" />
