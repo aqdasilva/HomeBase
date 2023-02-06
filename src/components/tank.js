@@ -79,7 +79,7 @@ const useStyles = makeStyles({
       let animationFrameId;
       if (isShooting) {
         animationFrameId = requestAnimationFrame(() => {
-          setBulletY(bulletY + 5);
+          setBulletY(bulletY + 4);
         });
       }
       return () => {
@@ -89,13 +89,13 @@ const useStyles = makeStyles({
     useEffect(() => {
       if (bulletY >= window.innerHeight) {
           setIsShooting(false);
-          setBulletY(-20);
+          setBulletY(-10);
       }
   
-      if (bulletY >= squareY && bulletY >= squareX && bulletY <= squareX + squareWidth) {
+      if (bulletY >= squareY ) {
           setIsGameOver(true);
       }
-  }, [bulletY, squareY, squareX, squareWidth]);
+  }, [bulletY, squareY]);
 
   useEffect(() => {
     setRight(window.innerWidth);
