@@ -1,9 +1,21 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography, Button, CardActions } from '@material-ui/core';
-import React from 'react'
+import React, { useRef } from 'react';
+import html2canvas from 'html2canvas';
 
 const Contacts = () => {
+  const cardRef = useRef(null);
+
+  const handleSave = async () => {
+    const canvas = await html2canvas(cardRef.current);
+    const link = document.createElement('a');
+    link.download = 'card.pdf';
+    link.href = canvas.toDataURL('application/pdf');
+    link.click();
+  };
+
+
   return (
-    <div>
+    <div ref={cardRef}>
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
           <CardMedia
@@ -36,7 +48,7 @@ const Contacts = () => {
           </Typography>
           <br />
           <CardActions>
-            <Button size="small" color="primary">
+            <Button onClick={handleSave} size="small" color="primary">
               Share
             </Button>
           </CardActions>
