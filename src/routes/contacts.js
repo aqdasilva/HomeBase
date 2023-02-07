@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import { FaDiscord } from "react-icons/fa";
 import html2canvas from 'html2canvas';
 import classNames from 'classnames';
 
@@ -50,7 +51,8 @@ const Contacts = () => {
           <Typography variant="body3" style={{ fontSize: '36px' }} color="text.secondary">
             Antqdasilva@gmail.com
           </Typography>
-          <br />        
+          <br />
+          <FaDiscord style={{ width: '40px', height: '40px' }} className={classNames.icon} />        
           <Typography variant="body4" style={{ fontSize: '36px' }} color="text.secondary">
              Discord: Azowr#4520
           </Typography>
