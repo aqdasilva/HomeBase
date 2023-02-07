@@ -3,8 +3,7 @@ import React, { useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
-import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
-import { FaDiscord } from "react-icons/fa";
+import { FaDiscord, FaPlaystation,} from "react-icons/fa";
 import html2canvas from 'html2canvas';
 import classNames from 'classnames';
 
@@ -45,15 +44,15 @@ const Contacts = () => {
             My Contact Information
           </Typography>
           <Typography variant="subtitle1" style={{ fontSize: '45px' }} color="text.secondary">
-            Boston, MA (Willing to relocate for the right position)
+            Boston, MA
           </Typography>
           <GoogleIcon style={{ width: '40px', height: '40px' }} className={classNames.icon}/>
-          <Typography variant="body3" style={{ fontSize: '36px' }} color="text.secondary">
+          <Typography variant="body3" style={{ fontSize: '36px', color:'blue' }} color="text.secondary">
             Antqdasilva@gmail.com
           </Typography>
           <br />
           <FaDiscord style={{ width: '40px', height: '40px' }} className={classNames.icon} />        
-          <Typography variant="body4" style={{ fontSize: '36px' }} color="text.secondary">
+          <Typography variant="body4" style={{ fontSize: '36px', color: 'purple' }} color="text.secondary">
              Discord: Azowr#4520
           </Typography>
           <br />
@@ -62,7 +61,7 @@ const Contacts = () => {
             GitHub: Aqdasilva
           </Typography>
           <br />
-          <SportsEsportsIcon style={{ width: '40px', height: '40px' }} className={classNames.icon} />
+          <FaPlaystation style={{ width: '40px', height: '40px' }} className={classNames.icon} />
           <Typography variant="body6" style={{ fontSize: '36px' }} color="text.secondary">
             Playstation: BiigRedAnt
           </Typography>
