@@ -59,9 +59,10 @@ function DropdownMenu() {
         transformOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
           <MenuItemLink startIcon={<Icon icon="line-md:github-loop" color="#9c730b" />} onClick={handleClose} to="/youtube" label="youtube"  />
-          <MenuItemLink onClick={handleClose} to="/twitch" label="twitch"  />
-          <MenuItemLink onClick={handleClose} to="/github" label="github" /> 
-          <MenuItemLink onClick={handleClose} to="/poshmark" label="poshmark" />
+          <MenuItemLink onClick={handleClose} to="/twitch" label="Twitch"  />
+          <MenuItemLink onClick={handleClose} to="/github" label="Github" /> 
+          <MenuItemLink onClick={handleClose} to="/poshmark" label="Poshmark" />
+          <MenuItemLink onClick={handleClose} to="/games" label="Games" />
       </Menu>
       </FormControl>
       

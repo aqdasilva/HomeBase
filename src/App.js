@@ -10,6 +10,7 @@ import Portfolio from './routes/portfolio';
 import Contacts from './routes/contacts';
 import Login from './components/Pages/Login';
 import Signup from './components/Pages/Signup';
+import Gamepage from './components/Games/gamepage';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/portfolio" element={<Portfolio />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/home" element={<Mainpage />} />
+          <Route path="/games" element={<Gamepage/>} />
 
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup setAuth={setAuth} />} />
