@@ -11,6 +11,7 @@ import Contacts from './routes/contacts';
 import Login from './components/Pages/Login';
 import Signup from './components/Pages/Signup';
 import Gamepage from './components/Games/gamepage';
+import TankWars from './components/Games/tankwars';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/home" element={<Mainpage />} />
           <Route path="/games" element={<Gamepage/>} />
+          <Route path="/tankwars" element={<TankWars />} />
 
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup setAuth={setAuth} />} />
