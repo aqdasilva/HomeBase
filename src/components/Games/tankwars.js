@@ -5,6 +5,7 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 
 const Tankwars = () => {
   const classes = useStyles();
@@ -125,12 +126,18 @@ const Tankwars = () => {
     };
   }, [bullets, tank1, tank2]);
 
+
   return (
     <div className={classes.root}>
-        <Paper className={classes.score}>
-          <div className={classes.playerScore}>Player 1: {tank1.health}</div>
-          <div className={classes.playerScore}>Player 2: {tank2.health}</div>
+      <Grid container spacing={2}>
+        <Paper>
+          <div className={classes.playerScore1}>Player 1: {tank1.health}</div>
         </Paper>
+        <Paper>
+          <div className={classes.playerScore2}>Player 2: {tank2.health}</div>
+        </Paper>
+      </Grid>
+
       <div className={classes.tanks}>
         <div
           className={classes.tank1}
@@ -166,11 +173,21 @@ const useStyles = makeStyles({
     left: '50%',
     transform: 'translateX(-50%)',
   },
-  playerScore: {
+  playerScore1: {
     display: 'inline-block',
     border: '1px solid red',
     padding: '1rem 1rem',
-    verticalAlign: 'middle',
+    position: 'fixed',
+    top: 0,
+    left: 200,
+  },
+  playerScore2: {
+    display: 'inline-block',
+    border: '1px solid red',
+    padding: '1rem 1rem',
+    position: 'fixed',
+    top: 0,
+    right: 200,
   },
   tanks: {
     position: "relative",
