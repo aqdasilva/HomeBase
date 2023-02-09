@@ -129,6 +129,7 @@ const Tankwars = () => {
 
   return (
     <div className={classes.root}>
+      <Typography className={classes.gameTitle}>Tank Wars</Typography>
       <Grid container spacing={2}>
         <Paper>
           <div className={classes.playerScore1}>Player 1: {tank1.health}</div>
@@ -167,6 +168,15 @@ const useStyles = makeStyles({
     alignItems: "center",
     flexDirection: "column",
   },
+  gameTitle: {
+    display: 'inline-block',
+    border: '1px solid red',
+    padding: '1rem 1rem',
+    position: 'fixed',
+    top: 0,
+    justifyContent: "center",
+    fontSize: '80px',
+  },
   score: {
     position: 'absolute',
     top: 0,
@@ -180,6 +190,7 @@ const useStyles = makeStyles({
     position: 'fixed',
     top: 0,
     left: 200,
+    fontSize: '40px',
   },
   playerScore2: {
     display: 'inline-block',
@@ -188,6 +199,7 @@ const useStyles = makeStyles({
     position: 'fixed',
     top: 0,
     right: 200,
+    fontSize: '40px',
   },
   tanks: {
     position: "relative",
