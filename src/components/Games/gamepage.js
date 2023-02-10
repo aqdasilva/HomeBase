@@ -8,6 +8,7 @@ import { MenuItem, Link } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { FormControl } from '@material-ui/core';
 import { Icon } from '@iconify/react';
+import Sidebar from '../navbar';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -42,28 +43,12 @@ const Gamepage = () => {
     };
 
     return (
-        <div className={classes.root}>
-          <FormControl>
-          <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-            Barracks
-          </Button>
-          <Menu
-            id="simple-menu"
-            anchorEl={anchorEl}
-            keepMounted
-            open={Boolean(anchorEl)}
-            onClose={handleClose}
-            anchorOrigin={{
-              vertical: "bottom",
-              horizontal: "center",
-            }}
-            transformOrigin={{ vertical: 'top', horizontal: 'center' }}
-          >
-              <MenuItemLink onClick={handleClose} to="/tankwars" label="Tank Wars" />
-          </Menu>
-          </FormControl>
-          
-        </div>
+      <div>
+        <header className="App-header">
+         <Sidebar />
+        </header>
+      </div>
+ 
       );
     }
     
