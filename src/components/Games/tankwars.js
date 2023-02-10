@@ -33,55 +33,49 @@ const Tankwars = () => {
   };
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
-      let newTank1 = { ...tank1 };
-      let newTank2 = { ...tank2 };
-      if (e.key === "ArrowLeft") {
-        newTank1.left -= 10;
-        setTank1(newTank1);
+    const handleKeyDown = id => event => {
+      let newTank;
+      if (id === 1) {
+        newTank = { ...tank1 };
+      } else {
+        newTank = { ...tank2 };
       }
-      if (e.key === "ArrowRight") {
-        newTank1.left += 10;
-        setTank1(newTank1);
+      switch (event.keyCode) {
+        case 37:
+          newTank.left -= 10;
+          newTank.direction = "left";
+          break;
+        case 38:
+          newTank.top -= 10;
+          newTank.direction = "up";
+          break;
+        case 39:
+          newTank.left += 10;
+          newTank.direction = "right";
+          break;
+        case 40:
+          newTank.top += 10;
+          newTank.direction = "down";
+          break;
+        default:
+          break;
       }
-      if (e.key === "ArrowUp") {
-        newTank1.top -= 10;
-        setTank1(newTank1);
-      }
-      if (e.key === "ArrowDown") {
-        newTank1.top += 10;
-        setTank1(newTank1);
-      }
-      if (e.key === "a") {
-        newTank2.left -= 10;
-        setTank2(newTank2);
-      }
-      if (e.key === "d") {
-        newTank2.left += 10;
-        setTank2(newTank2);
-      }
-      if (e.key === "w") {
-        newTank2.top -= 10;
-        setTank2(newTank2);
-      }
-      if (e.key === "s") {
-        newTank2.top += 10;
-        setTank2(newTank2);
-      }
-      if (e.key === " ") {
-        attackHandler(newTank1);
-      }
-      if (e.key === "Enter") {
-        attackHandler(newTank2);
+      if (id === 1) {
+        setTank1(newTank);
+      } else {
+        setTank2(newTank);
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
+    
+    window.addEventListener("keydown", handleKeyDown(1));
+    window.addEventListener("keydown", handleKeyDown(2));
 
     return () => {
-      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("keydown", handleKeyDown(1));
+      window.removeEventListener("keydown", handleKeyDown(2));
     };
-  });
+  }, []);
 
   useEffect(() => {
     let newTank1 = { ...tank1 };
@@ -143,18 +137,66 @@ const Tankwars = () => {
         <div
           className={classes.tank1}
           style={{ left: tank1.left, top: tank1.top }}
+        >
+        <div
+          style={{
+            position: "absolute",
+            left: 25 - 5,
+            top: 25 - 30,
+            width: 10,
+            height: 30,
+            backgroundColor: "black",
+            transform:
+              tank1.direction === "right"
+                ? "rotate(0deg)"
+                : tank1.direction === "left"
+                ? "rotate(180deg)"
+                : tank1.direction === "down"
+                ? "rotate(90deg)"
+                : tank1.direction === "up"
+                ? "rotate(-90deg)"
+                : ""
+          }}
         />
+        </div>
         <div
           className={classes.tank2}
           style={{ left: tank2.left, top: tank2.top }}
+        >
+           <div
+          style={{
+            position: "absolute",
+            left: 25 - 5,
+            top: 25 - 30,
+            width: 10,
+            height: 30,
+            backgroundColor: "black",
+            transform:
+              tank2.direction === "right"
+                ? "rotate(0deg)"
+                : tank2.direction === "left"
+                ? "rotate(180deg)"
+                : tank2.direction === "down"
+                ? "rotate(90deg)"
+                : tank2.direction === "up"
+                ? "rotate(-90deg)"
+                : ""
+          }}
         />
-        {bullets.map((bullet, index) => (
-          <div
-            key={index}
-            className={classes.bullet}
-            style={{ left: bullet.left, top: bullet.top }}
-          />
-        ))}
+      </div>
+      {bullets.map((bullet, index) => (
+        <div
+          key={index}
+          style={{
+            position: "absolute",
+            left: bullet.left,
+            top: bullet.top,
+            width: 10,
+            height: 10,
+            backgroundColor: "orange"
+          }}
+        />
+      ))}
       </div>
     </div>
   );
@@ -191,6 +233,22 @@ const useStyles = makeStyles({
     top: 0,
     left: 200,
     fontSize: '40px',
+  },
+  cannon1: {
+    position: 'absolute',
+    top: '20px',
+    left: '60px',
+    width: '10px',
+    height: '30px',
+    backgroundColor: 'black',
+  },
+  cannon2: {
+    position: 'absolute',
+    top: '20px',
+    left: '60px',
+    width: '10px',
+    height: '30px',
+    backgroundColor: 'black',
   },
   playerScore2: {
     display: 'inline-block',
