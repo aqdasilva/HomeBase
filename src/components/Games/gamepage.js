@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import TankWars from './tankwars';
 import { makeStyles } from '@material-ui/core/styles';
-import Menu from '@material-ui/core/Menu';
 import { Link as RouterLink } from 'react-router-dom';
 import { MenuItem, Link } from '@material-ui/core';
-import Button from '@material-ui/core/Button';
-import { FormControl } from '@material-ui/core';
-import { Icon } from '@iconify/react';
+import Grid from '@material-ui/core/Grid';
+import GameCards from './gameCards';
 import Sidebar from '../navbar';
 
 const useStyles = makeStyles((theme) => ({
@@ -19,7 +17,18 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: "#9c730b",
       border: '4px solid black',
       padding: theme.spacing(2),
-    }
+    },
+    gridList: {
+      width: 500,
+      height: 450,
+    },
+    card: {
+      width: 950,
+      height: 300,
+      backgroundColor: '#9c730b',
+      border: '4px solid black',
+      padding: theme.spacing(4),
+    },
   }));
   
   function MenuItemLink({ to, label, ...props }) {
@@ -32,21 +41,61 @@ const useStyles = makeStyles((theme) => ({
 
 const Gamepage = () => {
     const classes = useStyles();
-    const [anchorEl, setAnchorEl] = React.useState(null);
-  
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-  
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
 
     return (
       <div>
         <header className="App-header">
          <Sidebar />
         </header>
+        <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <div className={classes.card}>
+            <div className="cannon">
+              <GameCards />
+              <div className="small-black-rectangle" />
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={6}>
+          <div className={classes.card}>
+            <div className="cannon">
+              <div className="small-black-rectangle" />
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <div className={classes.card}>
+            <div className="cannon">
+              <div className="small-black-rectangle" />
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={6}>
+          <div className={classes.card}>
+            <div className="cannon">
+              <div className="small-black-rectangle" />
+            </div>
+          </div>
+        </Grid>
+      </Grid>
+      <Grid container spacing={2}>
+        <Grid item xs={6}>
+          <div className={classes.card}>
+            <div className="cannon">
+              <div className="small-black-rectangle" />
+            </div>
+          </div>
+        </Grid>
+        <Grid item xs={6}>
+          <div className={classes.card}>
+            <div className="cannon">
+              <div className="small-black-rectangle" />
+            </div>
+          </div>
+        </Grid>
+      </Grid>
       </div>
  
       );
