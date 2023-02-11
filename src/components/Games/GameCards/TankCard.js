@@ -8,11 +8,15 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: 980,
+    height: 250,
+    border: '4px solid black',
+    padding: theme.spacing(4),
+    backgroundColor: '#1c88c7',
   },
-});
+}));
 
 function GameLinks({ to, label, ...props }) {
     return (
@@ -27,10 +31,6 @@ const TankCard = () => {
   const classes = useStyles();
 
   const [anchorEl, setAnchorEl] = React.useState(null);
-
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
 
   const handleClose = () => {
     setAnchorEl(null);
