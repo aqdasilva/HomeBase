@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -13,8 +14,27 @@ const useStyles = makeStyles({
   },
 });
 
-const GameCards = () => {
+function GameLinks({ to, label, ...props }) {
+    return (
+      <Button component={RouterLink} to={to} {...props}>
+        {label}
+      </Button>
+    );
+  }
+
+
+const TankCard = () => {
   const classes = useStyles();
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <Card className={classes.root}>
@@ -29,12 +49,10 @@ const GameCards = () => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" href="https://www.example.com">
-          Go to Link
-        </Button>
+        <GameLinks onClick={handleClose} to="/tankwars" label="Enter War" />
       </CardActions>
     </Card>
   );
 }
 
-export default GameCards;
+export default TankCard;

@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { MenuItem, Link } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
-import GameCards from './gameCards';
+import TankCard from './GameCards/TankCard';
 import Sidebar from '../navbar';
 
 const useStyles = makeStyles((theme) => ({
@@ -51,7 +51,7 @@ const Gamepage = () => {
         <Grid item xs={6}>
           <div className={classes.card}>
             <div className="cannon">
-              <GameCards />
+              <TankCard />
               <div className="small-black-rectangle" />
             </div>
           </div>
