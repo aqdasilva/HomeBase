@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { GiTank } from "react-icons/gi";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,7 +42,7 @@ const TankCard = () => {
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
-            Tank Wars
+            Tank Wars <GiTank style={{ fontSize: '40px' }}  />
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             Click to go blow stuff up
