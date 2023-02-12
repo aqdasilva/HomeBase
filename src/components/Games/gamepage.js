@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
-import TankWars from './tankwars';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { MenuItem, Link } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import TankCard from './GameCards/TankCard';
+import KnightCard from './GameCards/knightDuel';
 import Sidebar from '../navbar';
 
 const useStyles = makeStyles((theme) => ({
@@ -59,6 +58,7 @@ const Gamepage = () => {
         <Grid item xs={6}>
           <div className={classes.card}>
             <div className="cannon">
+              <KnightCard />
               <div className="small-black-rectangle" />
             </div>
           </div>
