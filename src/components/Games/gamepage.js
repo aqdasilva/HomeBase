@@ -5,7 +5,9 @@ import { MenuItem, Link } from '@material-ui/core';
 import Grid from '@material-ui/core/Grid';
 import TankCard from './GameCards/TankCard';
 import KnightCard from './GameCards/knightDuel';
+import PingCard from './GameCards/PingPong';
 import Sidebar from '../navbar';
+import BeerCard from './GameCards/BeerPongCard';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -68,6 +70,7 @@ const Gamepage = () => {
         <Grid item xs={6}>
           <div className={classes.card}>
             <div className="cannon">
+              <PingCard />
               <div className="small-black-rectangle" />
             </div>
           </div>
@@ -75,8 +78,9 @@ const Gamepage = () => {
         <Grid item xs={6}>
           <div className={classes.card}>
             <div className="cannon">
-              <div className="small-black-rectangle" />
-            </div>
+              <BeerCard />
+            <div className="small-black-rectangle" />
+          </div>
           </div>
         </Grid>
       </Grid>
