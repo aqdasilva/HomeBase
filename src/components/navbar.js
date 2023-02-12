@@ -63,8 +63,8 @@ const listItems = [
   },
   {
     listIcon: <Apps />,
-    listText: "Portfolio",
-    link: '/portfolio',
+    listText: "Inspirations",
+    link: '/inspirations',
   },
   {
     listIcon: <ContactMail />,

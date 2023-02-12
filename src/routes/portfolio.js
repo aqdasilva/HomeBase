@@ -1,11 +1,13 @@
 import React from 'react'
 
-const Portfolio = () => {
+const Inspirations = () => {
   return (
     <div>
-      portfolio
+      https://jesse-zhou.com/
+      https://bruno-simon.com/
+      https://p5aholic.me/contact/
     </div>
   )
 }
 
-export default Portfolio;
+export default Inspirations;

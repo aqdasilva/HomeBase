@@ -6,7 +6,7 @@ import Resume from './routes/resume';
 import Twitch from './routes/twitch';
 import Youtube from './routes/youtube';
 import Poshmark from './routes/poshmark';
-import Portfolio from './routes/portfolio';
+import Inspirations from './routes/portfolio';
 import Contacts from './routes/contacts';
 import Login from './components/Pages/Login';
 import Signup from './components/Pages/Signup';
@@ -27,7 +27,7 @@ function App() {
           <Route path="/twitch" element={<Twitch />} />
           <Route path="/youtube" element={<Youtube />} />
           <Route path="/poshmark" element={<Poshmark />} />
-          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/inspirations" element={<Inspirations />} />
           <Route path="/contacts" element={<Contacts />} />
           <Route path="/home" element={<Mainpage />} />
           <Route path="/games" element={<Gamepage/>} />
