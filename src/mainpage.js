@@ -6,27 +6,36 @@ import TechStack from './components/techStack';
 
 const useStyles = makeStyles((theme) => ({
   App: {
-    backgroundColor: 'red',
-
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    height: '100vh'
+  },
+  greeting: {
+    fontSize: '64px',
+    alignContent: 'center',
+    
   }
 }));
 
 const Mainpage = () => {
   const classes = useStyles();
   return (
-      <div className={classes.App}>
-        <div>
-           <Tank />
-        </div>
-            <header className="App-header">
-              <Sidebar />
-            </header>
-          <div>
-            <TechStack />
-          </div>
+    <div className={classes.App}>
+      <header className="App-header">
+        <Sidebar />
+      </header>
+      <h5 className={classes.greeting}>
+        Hey there Visitor ! 
+      </h5>
+      <div>
+        <Tank />
       </div>
-      
 
+      <div>
+        <TechStack />
+      </div>
+    </div>
     );
   }
 
