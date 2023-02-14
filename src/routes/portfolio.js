@@ -6,7 +6,7 @@ const Inspirations = () => {
     <div>
       <header className="App-header">
          <Sidebar />
-        </header>
+      </header>
       <a href="https://jesse-zhou.com/">Jesse Zhou</a><br />
       <a href="https://bruno-simon.com/">Bruno Simon</a><br />
       <a href="https://p5aholic.me/contact/">p5aholic</a>
