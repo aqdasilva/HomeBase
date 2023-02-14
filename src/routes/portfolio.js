@@ -3,9 +3,9 @@ import React from 'react'
 const Inspirations = () => {
   return (
     <div>
-      https://jesse-zhou.com/
-      https://bruno-simon.com/
-      https://p5aholic.me/contact/
+      <a href="https://jesse-zhou.com/">Jesse Zhou</a><br />
+      <a href="https://bruno-simon.com/">Bruno Simon</a><br />
+      <a href="https://p5aholic.me/contact/">p5aholic</a>
     </div>
   )
 }
