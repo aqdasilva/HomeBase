@@ -4,6 +4,7 @@ import Sidebar from './components/navbar';
 import Tank from './components/tank';
 import TechStack from './components/techStack';
 import OSStack from './components/osStack';
+import MyLoader from './components/MyLoader';
 import { GiFireSilhouette } from "react-icons/gi";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,12 +24,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginTop: '180px',
     transition: 'color 0.8s ease-in-out',
-  },
-  spinner: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
   },
 }));
 
@@ -65,7 +60,7 @@ const Mainpage = () => {
     <>
     {loading ? (
       <div className={classes.spinner}>
-        <h1>Loading...</h1>
+        <MyLoader />
       </div>
     ) : (
     <div className={classes.App}>
