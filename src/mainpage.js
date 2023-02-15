@@ -23,13 +23,20 @@ const useStyles = makeStyles((theme) => ({
     textAlign: 'center',
     marginTop: '180px',
     transition: 'color 0.8s ease-in-out',
-  }
+  },
+  spinner: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100vh',
+  },
 }));
 
 
 const Mainpage = () => {
   const classes = useStyles();
   const [color, setColor] = useState('#fc3903');
+  const [loading, setLoading] = useState(false);
 
   setTimeout(() => {
     setColor(prevColor => {
@@ -48,7 +55,20 @@ const Mainpage = () => {
     });
   }, 1000);
 
+  const handleClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  };
+
   return (
+    <>
+    {loading ? (
+      <div className={classes.spinner}>
+        <h1>Loading...</h1>
+      </div>
+    ) : (
     <div className={classes.App}>
       <header className="App-header">
         <Sidebar />
@@ -72,7 +92,10 @@ const Mainpage = () => {
       <div>
         <OSStack />
       </div>
+      <button onClick={handleClick}>Click me</button>
     </div>
+    )}
+    </>
     );
   }
 
