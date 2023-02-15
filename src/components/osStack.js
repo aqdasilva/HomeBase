@@ -4,16 +4,15 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { SiPhp } from "react-icons/si";
-import { FaReact, FaJava} from "react-icons/fa";
-import { TbBrandJavascript } from "react-icons/tb";
+import { AiFillApple, AiFillWindows, AiFillChrome } from "react-icons/ai";
+import { FcLinux } from "react-icons/fc";
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
     bottom: 0,
-    left: '45%',
+    left: '55%',
     transform: 'translateX(-50%)',
     textAlign: 'center',
     backgroundColor: "#9c730b",
@@ -27,40 +26,40 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function TechStack() {
+function OSStack() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <h2 className={classes.title}>Tech Stack</h2>
+      <h2 className={classes.title}>OS Stack</h2>
       <List component="nav" aria-label="main mailbox folders">
         <ListItem button>
           <ListItemIcon>
-            <TbBrandJavascript style={{ fontSize: 38 }} />
+            <AiFillApple style={{ fontSize: 38 }} />
           </ListItemIcon>
-          <ListItemText primary="JavaScript" />
+          <ListItemText primary="Mac OS" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <FaJava style={{ fontSize: 38 }}  />
+            <AiFillWindows style={{ fontSize: 38 }}  />
           </ListItemIcon>
-          <ListItemText primary="Java" />
+          <ListItemText primary="Windows 10, 11" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <SiPhp style={{ fontSize: 38 }}  />
+            <AiFillChrome style={{ fontSize: 38 }}  />
           </ListItemIcon>
-          <ListItemText primary="PHP" />
+          <ListItemText primary="Chrome OS" />
         </ListItem>
         <ListItem button>
           <ListItemIcon>
-            <FaReact style={{ fontSize: 38 }}  />
+            <FcLinux style={{ fontSize: 38 }}  />
           </ListItemIcon>
-          <ListItemText primary="React" />
+          <ListItemText primary="Learning: Linux" />
         </ListItem>
       </List>
     </div>
   );
 }
 
-export default TechStack;
+export default OSStack;

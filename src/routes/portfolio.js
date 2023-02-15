@@ -24,6 +24,12 @@ const Item = styled(Paper)(({ theme }) => ({
   width:'200px', //set the width
 }));
 
+const Title = styled('h1')(({ theme }) => ({
+  textAlign: 'center',
+  fontSize: '2em',
+  margin: '30px 0',
+}));
+
 const Inspirations = () => {
   const classes = useStyles();
 
@@ -32,6 +38,7 @@ const Inspirations = () => {
       <header className="App-header">
          <Sidebar />
       </header>
+      <Title>My Inspirations</Title>
       <Stack
         direction="row"
         justifyContent="center"

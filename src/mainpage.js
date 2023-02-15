@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Sidebar from './components/navbar';
 import Tank from './components/tank';
 import TechStack from './components/techStack';
+import OSStack from './components/osStack';
 import { GiFireSilhouette } from "react-icons/gi";
 
 const useStyles = makeStyles((theme) => ({
@@ -67,6 +68,9 @@ const Mainpage = () => {
       </div>
       <div>
         <TechStack />
+      </div>
+      <div>
+        <OSStack />
       </div>
     </div>
     );
