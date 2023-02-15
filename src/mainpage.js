@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Sidebar from './components/navbar';
 import Tank from './components/tank';
@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
 const Mainpage = () => {
   const classes = useStyles();
   const [color, setColor] = useState('#fc3903');
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   setTimeout(() => {
     setColor(prevColor => {
@@ -55,12 +55,11 @@ const Mainpage = () => {
     });
   }, 1000);
 
-  const handleClick = () => {
-    setLoading(true);
+  useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 1000);
-  };
+  }, []);
 
   return (
     <>
@@ -92,7 +91,6 @@ const Mainpage = () => {
       <div>
         <OSStack />
       </div>
-      <button onClick={handleClick}>Click me</button>
     </div>
     )}
     </>
