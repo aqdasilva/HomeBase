@@ -4,9 +4,12 @@ import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import MyLoader from './components/MyLoader';
+
 
 const Tankwars = () => {
   const classes = useStyles();
+  const [loading, setLoading] = useState(true);
 
   const [tank1, setTank1] = useState({
     id: 1,
@@ -124,7 +127,20 @@ const Tankwars = () => {
     };
   }, [bullets, tank1, tank2]);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
+
   return (
+    <>
+    {loading ? (
+      <div className={classes.loader}>
+        <MyLoader />
+      </div>
+    ) : (
     <div className={classes.root}>
       <Typography className={classes.gameTitle}>Tank Wars</Typography>
       <div className={classes.field}>
@@ -155,6 +171,8 @@ const Tankwars = () => {
         ))}
       </div>
     </div>
+     )}
+     </>
   );
 };
 
@@ -226,6 +244,10 @@ const useStyles = makeStyles({
         width: 2600,
         height: 900,
         backgroundColor: "green",
+      },
+      loader: {
+        marginTop: '180px',
+        textAlign: 'center',
       },
 });
 export default Tankwars;
