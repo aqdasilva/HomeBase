@@ -25,6 +25,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '180px',
     transition: 'color 0.8s ease-in-out',
   },
+  loader: {
+    marginTop: '180px',
+    textAlign: 'center',
+  }
 }));
 
 
@@ -59,7 +63,7 @@ const Mainpage = () => {
   return (
     <>
     {loading ? (
-      <div className={classes.spinner}>
+      <div className={classes.loader}>
         <MyLoader />
       </div>
     ) : (

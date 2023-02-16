@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { MenuItem, Link } from '@material-ui/core';
@@ -8,6 +8,7 @@ import KnightCard from './GameCards/knightDuel';
 import PingCard from './GameCards/PingPong';
 import Sidebar from '../navbar';
 import BeerCard from './GameCards/BeerPongCard';
+import MyLoader from '../MyLoader';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,6 +31,10 @@ const useStyles = makeStyles((theme) => ({
       border: '4px solid black',
       padding: theme.spacing(4),
     },
+    loader: {
+      marginTop: '180px',
+      textAlign: 'center',
+    }
   }));
   
   function MenuItemLink({ to, label, ...props }) {
@@ -42,8 +47,22 @@ const useStyles = makeStyles((theme) => ({
 
 const Gamepage = () => {
     const classes = useStyles();
+    const [loading, setLoading] = useState(true);
+
+
+    useEffect(() => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }, []);
 
     return (
+      <>
+      {loading ? (
+      <div className={classes.loader}>
+        <MyLoader />
+      </div>
+    ) : (
       <div>
         <header className="App-header">
          <Sidebar />
@@ -101,7 +120,8 @@ const Gamepage = () => {
         </Grid>
       </Grid>
       </div>
- 
+      )}
+      </>
       );
     }
     
