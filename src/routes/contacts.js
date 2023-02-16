@@ -1,11 +1,12 @@
 import { Card, CardActionArea, CardContent, CardMedia, Typography, Button, CardActions } from '@material-ui/core';
-import React, { useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import GoogleIcon from '@mui/icons-material/Google';
 import { FaDiscord, FaPlaystation,} from "react-icons/fa";
 import html2canvas from 'html2canvas';
 import classNames from 'classnames';
+import React, { useState,useRef, useEffect } from 'react';
+import MyLoader from '../components/MyLoader';
 
 const useStyles = makeStyles({
   root: {
@@ -15,10 +16,16 @@ const useStyles = makeStyles({
   icon: {
     marginRight: '10px',
   },
+  loader: {
+    marginTop: '180px',
+    textAlign: 'center',
+  },
 });
 
 const Contacts = () => {
   const cardRef = useRef(null);
+  const [loading, setLoading] = useState(true);
+  const classes = useStyles();
 
   const handleSave = async () => {
     const canvas = await html2canvas(cardRef.current);
@@ -28,8 +35,20 @@ const Contacts = () => {
     link.click();
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+  }, []);
+
 
   return (
+    <>
+    {loading ? (
+      <div className={classes.loader}>
+        <MyLoader />
+      </div>
+    ) : (
     <div ref={cardRef}>
       <Card sx={{ maxWidth: 345 }}>
         <CardActionArea>
@@ -74,8 +93,9 @@ const Contacts = () => {
         </CardContent>
        </CardActionArea>
       </Card>
-
     </div>
+)}
+</>
   )
 }
 
