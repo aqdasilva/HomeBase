@@ -5,14 +5,21 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
-
+import adlogo from '../images/adlogo.png';
 
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
     marginBottom: "10px",
     left: '5%',   
-  }
+  },
+  App: {
+    backgroundImage: `url(${adlogo})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    height: '100vh'
+  },
 }));
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -34,7 +41,7 @@ const Inspirations = () => {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.App}>
       <header className="App-header">
          <Sidebar />
       </header>
@@ -43,6 +50,7 @@ const Inspirations = () => {
         direction="row"
         justifyContent="center"
         alignItems="flex-end"
+        divider={<Divider orientation="vertical" flexItem />}
         spacing={4}
         sx={{ marginTop: '30px' }} // Add some margin to the top
       > <Item><a  href="https://jesse-zhou.com/">Jesse Zhou</a></Item>
