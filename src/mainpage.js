@@ -6,6 +6,7 @@ import TechStack from './components/techStack';
 import OSStack from './components/osStack';
 import MyLoader from './components/MyLoader';
 import { GiFireSilhouette } from "react-icons/gi";
+import adlogo from './images/adlogo.png';
 
 const useStyles = makeStyles((theme) => ({
   App: {
@@ -18,6 +19,14 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '64px',
     textAlign: 'center',
     marginTop: '180px',
+  },
+  myLogo: {
+    textAlign: 'center',
+    marginTop: '180px',
+    '& img': {
+      width: '20px',
+      height: '20px',
+    },
   },
   info: {
     fontSize: '64px',
@@ -73,6 +82,9 @@ const Mainpage = () => {
       </header>
       <h4 className={classes.greeting}>
         Anthony Quinn DaSilva
+      </h4>
+      <h4 className={classes.mylogo}>
+        <img src={adlogo} alt="My Logo" className={classes.myLogo} />
       </h4>
       <h3 className={classes.info} style={{ color }}>
         Software, Web Stuff, Data, & More <GiFireSilhouette />
