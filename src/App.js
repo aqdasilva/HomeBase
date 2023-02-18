@@ -12,14 +12,16 @@ import Login from './components/Pages/Login';
 import Signup from './components/Pages/Signup';
 import Gamepage from './components/Games/gamepage';
 import TankWars from './components/Games/tankwars';
+import Playlist from './components/Pages/playlist';
 
 
 function App() {
   const [auth, setAuth] = useState(false);
   const location = useLocation();
 
+  //all the routes for all of the pages
   return (
-    <>
+    <> 
         <Routes>
           <Route path="/" element={<Mainpage />} />
           <Route path="/github" element={<Github />} />
@@ -32,6 +34,7 @@ function App() {
           <Route path="/home" element={<Mainpage />} />
           <Route path="/games" element={<Gamepage/>} />
           <Route path="/tankwars" element={<TankWars />} />
+          <Route path="/playlist" element={<Playlist />} />
 
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup setAuth={setAuth} />} />
