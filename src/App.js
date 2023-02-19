@@ -13,6 +13,7 @@ import Signup from './components/Pages/Signup';
 import Gamepage from './components/Games/gamepage';
 import TankWars from './components/Games/tankwars';
 import Playlist from './components/Pages/playlist';
+import Blog from './components/Pages/blog';
 
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/games" element={<Gamepage/>} />
           <Route path="/tankwars" element={<TankWars />} />
           <Route path="/playlist" element={<Playlist />} />
+          <Route path="/updates" element={<Blog />} />
 
           <Route path="/login" element={<Login setAuth={setAuth} />} />
           <Route path="/signup" element={<Signup setAuth={setAuth} />} />
