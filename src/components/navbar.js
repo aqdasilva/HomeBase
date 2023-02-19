@@ -26,6 +26,7 @@ import 'animate.css';
 // https://animate.style/
 import DropdownMenu from "./dropdownmenu";
 import { Link as RouterLink } from 'react-router-dom';
+import { FaBlogger } from "react-icons/fa";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -52,27 +53,27 @@ const useStyles = makeStyles((theme) => ({
 
 const listItems = [
   {
-    listIcon: <Home />,
+    listIcon: <Home style={{ fontSize: 28}} />,
     listText: "Home",
     link: '/home',
   },
   {
-    listIcon: <AssignmentInd />,
+    listIcon: <AssignmentInd style={{ fontSize: 28}} />,
     listText: "Resume",
     link: '/resume',
   },
   {
-    listIcon: <Apps />,
+    listIcon: <Apps style={{ fontSize: 28}} />,
     listText: "Inspirations",
     link: '/inspirations',
   },
   {
-    listIcon: <ContactMail />,
+    listIcon: <ContactMail style={{ fontSize: 28}} />,
     listText: "Contacts",
     link: '/contacts',
   },
   {
-    listIcon: <ContactMail />,
+    listIcon: <FaBlogger style={{ fontSize: 28}} />,
     listText: "Updates",
     link: '/updates',
   },
