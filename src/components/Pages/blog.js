@@ -4,40 +4,39 @@ const Blog = () => {
   const [postContent, setPostContent] = useState('');
   const [posts, setPosts] = useState([]);
 
-  const handlePostSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    if (postContent.trim() !== '') {
-      const newPost = {
-        content: postContent.trim(),
-        time: new Date().toLocaleTimeString(),
-        date: new Date().toLocaleDateString(),
-      };
-      setPosts([...posts, newPost]);
-      setPostContent('');
-    }
+    const newPost = {
+      title: event.target.title.value,
+      content: event.target.content.value,
+      date: new Date()
+    };
+    setPosts([...posts, newPost]);
+    event.target.reset();
   };
 
   return (
     <div>
-      <h1>Updates</h1>
-      <form onSubmit={handlePostSubmit}>
-        <textarea
-          value={postContent}
-          onChange={(event) => setPostContent(event.target.value)}
-          placeholder="Enter your blog post here..."
-        />
-        <button type="submit">Post</button>
+      <h1>Blog</h1>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="title">Title:</label>
+        <input id="title" name="title" type="text" />
+        <br />
+        <label htmlFor="content">Content:</label>
+        <textarea id="content" name="content" />
+        <br />
+        <button type="submit">Add Post</button>
       </form>
-      <hr />
-      <h2>Previous Posts:</h2>
-      <ul>
-        {posts.map((post, index) => (
-          <li key={index}>
-            <div>{post.content}</div>
-            <div>Posted on {post.date} at {post.time}</div>
-          </li>
-        ))}
-      </ul>
+      {posts.map((post, index) => (
+        <div key={index} style={{ display: "flex", alignItems: "center", margin: "10px 0" }}>
+          <div style={{ backgroundColor: "red", width: "20px", height: "20px", borderRadius: "50%", marginRight: "10px" }}></div>
+          <div>
+            <h2>{post.title}</h2>
+            <p>{post.content}</p>
+            <p>{post.date.toLocaleString()}</p>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
