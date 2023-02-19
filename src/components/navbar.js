@@ -71,6 +71,11 @@ const listItems = [
     listText: "Contacts",
     link: '/contacts',
   },
+  {
+    listIcon: <ContactMail />,
+    listText: "Updates",
+    link: '/updates',
+  },
 ];
 
 function Sidebar() {
