@@ -1,3 +1,4 @@
+import { Paper } from '@material-ui/core';
 import React, { useState } from 'react';
 
 const Blog = () => {
@@ -31,9 +32,11 @@ const Blog = () => {
         <div key={index} style={{ display: "flex", alignItems: "center", margin: "10px 0" }}>
           <div style={{ backgroundColor: "red", width: "20px", height: "20px", borderRadius: "50%", marginRight: "10px" }}></div>
           <div>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-            <p>{post.date.toLocaleString()}</p>
+            <Paper style={{border: '8px solid black'}}>
+              <h2>{post.title} style={{}}</h2>
+              <p>{post.content}</p>
+              <p>{post.date.toLocaleString()}</p>
+            </Paper>
           </div>
         </div>
       ))}
