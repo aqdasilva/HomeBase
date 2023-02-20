@@ -33,7 +33,7 @@ const Blog = () => {
           <div style={{ backgroundColor: "red", width: "20px", height: "20px", borderRadius: "50%", marginRight: "10px" }}></div>
           <div>
             <Paper style={{border: '8px solid black'}}>
-              <h2>{post.title} style={{}}</h2>
+              <h2 style={{textDecoration: 'underline'}}>{post.title}</h2>
               <p>{post.content}</p>
               <p>{post.date.toLocaleString()}</p>
             </Paper>
