@@ -1,6 +1,7 @@
 import { Paper } from '@material-ui/core';
 import React, { useState } from 'react';
 import glassHacker from '../../images/glassHacker.png';
+import Sidebar from '../navbar';
 
 const Blog = () => {
   const [postContent, setPostContent] = useState('');
@@ -19,6 +20,9 @@ const Blog = () => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', marginRight: '40px'}}>
+      <header className="App-header">
+        <Sidebar />
+      </header>
       <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
         <img src={glassHacker} alt="Logo" />
       </div>
