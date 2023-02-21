@@ -23,7 +23,7 @@ const Blog = () => {
       <header className="App-header">
         <Sidebar />
       </header>
-      <div style={{ display: 'flex', justifyContent: 'center', marginTop: '50px' }}>
+      <div style={{ display: 'flex', marginTop: '50px' }}>
         <img src={glassHacker} alt="Logo" />
       </div>
       <div style={{ width: '80%', maxWidth: '800px' }}>
