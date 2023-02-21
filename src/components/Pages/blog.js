@@ -1,6 +1,7 @@
 import { Paper } from '@material-ui/core';
 import React, { useState } from 'react';
 import glassHacker from '../../images/glassHacker.png';
+import pixelhacker from '../../images/pixelhacker.png';
 import Sidebar from '../navbar';
 
 const Blog = () => {
@@ -25,6 +26,7 @@ const Blog = () => {
       </header>
       <div style={{ display: 'flex', marginTop: '50px' }}>
         <img src={glassHacker} alt="Logo" />
+        <img src={pixelhacker} alt="Logo" />
       </div>
       <div style={{ width: '80%', maxWidth: '800px' }}>
         <h1>Blog</h1>
