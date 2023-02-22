@@ -14,6 +14,7 @@ import Gamepage from './components/Games/gamepage';
 import TankWars from './components/Games/tankwars';
 import Playlist from './components/Pages/playlist';
 import Blog from './components/Pages/blog';
+import PingPong from './components/Games/pingpong';
 
 
 
@@ -39,6 +40,7 @@ function App() {
               <Route path="/tankwars" element={<TankWars />} />
               <Route path="/playlist" element={<Playlist />} />
               <Route path="/updates" element={<Blog />} />
+              <Route path="/pingpong" element={<PingPong />} />
 
               <Route path="/login" element={<Login setAuth={setAuth} />} />
               <Route path="/signup" element={<Signup setAuth={setAuth} />} />
