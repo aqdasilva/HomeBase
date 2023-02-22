@@ -1,10 +1,26 @@
 import { Paper } from '@material-ui/core';
 import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import glassHacker from '../../images/glassHacker.png';
 import pixelhacker from '../../images/pixelhacker.png';
 import Sidebar from '../navbar';
 
+const useStyles = makeStyles((theme) => ({
+  App: {
+    backgroundColor: '#b08784',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    height: '100vh'
+  },
+  loader: {
+    marginTop: '180px',
+    textAlign: 'center',
+  }
+}));
+
 const Blog = () => {
+  const classes = useStyles();
   const [postContent, setPostContent] = useState('');
   const [posts, setPosts] = useState([]);
 
@@ -20,7 +36,7 @@ const Blog = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', marginRight: '40px'}}>
+    <div className={classes.App} style={{ display: 'flex', flexDirection: 'column', marginRight: '40px'}}>
       <header className="App-header">
         <Sidebar />
       </header>
