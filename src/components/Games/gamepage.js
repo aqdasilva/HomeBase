@@ -11,6 +11,13 @@ import BeerCard from './GameCards/BeerPongCard';
 import MyLoader from '../MyLoader';
 
 const useStyles = makeStyles((theme) => ({
+  App: {
+    backgroundColor: '#363232',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
+    height: '100vh'
+  },
     root: {
       position: 'fixed',
       left: '50%',
@@ -63,7 +70,7 @@ const Gamepage = () => {
         <MyLoader />
       </div>
     ) : (
-      <div>
+      <div className={classes.App}>
         <header className="App-header">
          <Sidebar />
         </header>
