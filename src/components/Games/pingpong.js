@@ -22,11 +22,11 @@ const PingPong = () => {
       const handleKeyPress = (event) => {
         if (event.key === "w" && leftPaddlePosition > 0) {
           setLeftPaddlePosition((position) => position - 10);
-        } else if (event.key === "s" && leftPaddlePosition < 400) {
+        } else if (event.key === "s" && leftPaddlePosition < window.innerHeight - 100) {
           setLeftPaddlePosition((position) => position + 10);
         } else if (event.key === "ArrowUp" && rightPaddlePosition > 0) {
           setRightPaddlePosition((position) => position - 10);
-        } else if (event.key === "ArrowDown" && rightPaddlePosition < 400) {
+        } else if (event.key === "ArrowDown" && rightPaddlePosition < window.innerHeight - 100) {
           setRightPaddlePosition((position) => position + 10);
         }
       };
@@ -58,14 +58,14 @@ const PingPong = () => {
         ballPosition.y < leftPaddlePosition + 100
       ) {
         // Ball collided with the left paddle
-        setBallVelocity({ ...ballVelocity, x: -ballVelocity.x });
+        setBallVelocity({ x: -ballVelocity.x, y: -ballVelocity.y });
       } else if (
         ballPosition.x > window.innerWidth - 40 &&
         ballPosition.y > rightPaddlePosition &&
         ballPosition.y < rightPaddlePosition + 100
       ) {
         // Ball collided with the right paddle
-        setBallVelocity({ ...ballVelocity, x: -ballVelocity.x });
+        setBallVelocity({ x: -ballVelocity.x, y: -ballVelocity.y });
       }
   
       return () => cancelAnimationFrame(animationFrameId);
