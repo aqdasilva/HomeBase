@@ -47,7 +47,7 @@ const PingPong = () => {
         };
         setBallPosition(newBallPosition);
       });
-  
+    
       // Check for collisions with the walls or paddles
       if (ballPosition.y < 0 || ballPosition.y > window.innerHeight - 20) {
         // Ball collided with the top or bottom walls
@@ -68,8 +68,8 @@ const PingPong = () => {
         // Ball collided with the right paddle
         setBallVelocity({ x: -ballVelocity.x, y: -ballVelocity.y });
         setScore((prevScore) => ({ ...prevScore, left: prevScore.left + 1 }));
-      } else if (ballPosition.x < 0 || ballPosition.x > window.innerWidth) {
-        // Ball went off the screen
+      } else if (ballPosition.x <= 0 || ballPosition.x >= window.innerWidth) {
+        // Ball hit the side of the screen
         setBallPosition({ x: 400, y: 250 });
         setBallVelocity({
           x: Math.random() * 4 - 2,
@@ -83,11 +83,9 @@ const PingPong = () => {
           setScore((prevScore) => ({ ...prevScore, left: prevScore.left + 1 }));
         }
       }
-
-      
+    
       return () => cancelAnimationFrame(animationFrameId);
     }, [ballPosition, ballVelocity, leftPaddlePosition, rightPaddlePosition]);
-
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       <div
