@@ -59,6 +59,7 @@ const PingPong = () => {
       ) {
         // Ball collided with the left paddle
         setBallVelocity({ x: -ballVelocity.x, y: -ballVelocity.y });
+        setScore((prevScore) => ({ ...prevScore, right: prevScore.right + 1 }));
       } else if (
         ballPosition.x > window.innerWidth - 40 &&
         ballPosition.y > rightPaddlePosition &&
@@ -66,7 +67,45 @@ const PingPong = () => {
       ) {
         // Ball collided with the right paddle
         setBallVelocity({ x: -ballVelocity.x, y: -ballVelocity.y });
+        setScore((prevScore) => ({ ...prevScore, left: prevScore.left + 1 }));
+      } else if (ballPosition.x < 0 || ballPosition.x > window.innerWidth) {
+        // Ball went off the screen
+        setBallPosition({ x: 400, y: 250 });
+        setBallVelocity({
+          x: Math.random() * 4 - 2,
+          y: Math.random() * 4 - 2,
+        });
+        if (direction === "left") {
+          setDirection("right");
+          setScore((prevScore) => ({ ...prevScore, right: prevScore.right + 1 }));
+        } else {
+          setDirection("left");
+          setScore((prevScore) => ({ ...prevScore, left: prevScore.left + 1 }));
+        }
       }
+
+      if (ballPosition.x < 0) {
+        // Ball went past the left paddle, right player scores
+        setScore((score) => ({ ...score, right: score.right + 1 }));
+        // Reset ball position, velocity, and direction
+        setBallPosition({ x: 400, y: 250 });
+        setBallVelocity({
+          x: Math.random() * 4 - 2,
+          y: Math.random() * 4 - 2,
+        });
+        setDirection("right");
+      } else if (ballPosition.x > window.innerWidth - 20) {
+        // Ball went past the right paddle, left player scores
+        setScore((score) => ({ ...score, left: score.left + 1 }));
+        // Reset ball position, velocity, and direction
+        setBallPosition({ x: 400, y: 250 });
+        setBallVelocity({
+          x: Math.random() * 4 - 2,
+          y: Math.random() * 4 - 2,
+        });
+        setDirection("left");
+      }
+      
   
       return () => cancelAnimationFrame(animationFrameId);
     }, [ballPosition, ballVelocity, leftPaddlePosition, rightPaddlePosition]);
