@@ -1,11 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-//notes: need paddles to go all the way down and up, and when ball hits side of the screen game over
+//notes: 
+
+
 
 const PingPong = () => {
     const [ballPosition, setBallPosition] = useState({ x: 400, y: 250 });
     const [leftPaddlePosition, setLeftPaddlePosition] = useState(200);
     const [rightPaddlePosition, setRightPaddlePosition] = useState(200);
+    const [winner, setWinner] = useState("");
     const [ballVelocity, setBallVelocity] = useState({
       x: Math.random() * 4 - 2,
       y: Math.random() * 4 - 2,
@@ -59,7 +62,7 @@ const PingPong = () => {
       ) {
         // Ball collided with the left paddle
         setBallVelocity({ x: -ballVelocity.x, y: -ballVelocity.y });
-        setScore((prevScore) => ({ ...prevScore, right: prevScore.right + 1 }));
+        // setScore((prevScore) => ({ ...prevScore, right: prevScore.right + 1 }));
       } else if (
         ballPosition.x > window.innerWidth - 40 &&
         ballPosition.y > rightPaddlePosition &&
@@ -67,25 +70,36 @@ const PingPong = () => {
       ) {
         // Ball collided with the right paddle
         setBallVelocity({ x: -ballVelocity.x, y: -ballVelocity.y });
-        setScore((prevScore) => ({ ...prevScore, left: prevScore.left + 1 }));
-      } else if (ballPosition.x <= 0 || ballPosition.x >= window.innerWidth) {
-        // Ball hit the side of the screen
+        // setScore((prevScore) => ({ ...prevScore, left: prevScore.left + 1 }));
+      } else if (ballPosition.x <= 0) {
+        // Ball hit the left side of the screen
         setBallPosition({ x: 400, y: 250 });
         setBallVelocity({
           x: Math.random() * 4 - 2,
           y: Math.random() * 4 - 2,
         });
-        if (direction === "left") {
-          setDirection("right");
-          setScore((prevScore) => ({ ...prevScore, right: prevScore.right + 1 }));
-        } else {
-          setDirection("left");
-          setScore((prevScore) => ({ ...prevScore, left: prevScore.left + 1 }));
-        }
+        setScore((prevScore) => ({ ...prevScore, right: prevScore.right + 1 }));
+      } else if (ballPosition.x >= window.innerWidth - 20) {
+        // Ball hit the right side of the screen
+        setBallPosition({ x: 400, y: 250 });
+        setBallVelocity({
+          x: Math.random() * 4 - 2,
+          y: Math.random() * 4 - 2,
+        });
+        setScore((prevScore) => ({ ...prevScore, left: prevScore.left + 1 }));
       }
     
       return () => cancelAnimationFrame(animationFrameId);
     }, [ballPosition, ballVelocity, leftPaddlePosition, rightPaddlePosition]);
+
+    useEffect(() => {
+      if (score.left === 11) {
+        setWinner("left");
+      } else if (score.right === 11) {
+        setWinner("right");
+      }
+    },[score]);
+  
   return (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       <div
