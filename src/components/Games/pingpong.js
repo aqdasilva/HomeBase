@@ -1,10 +1,18 @@
 import React, { useState, useRef, useEffect } from 'react';
+import MyLoader from "../MyLoader";
+import { makeStyles } from "@material-ui/core/styles";
+//notes: add speed everytime the ball is hit by both players
 
-//notes: 
-
-
+const useStyles = makeStyles({
+      loader: {
+        marginTop: '180px',
+        textAlign: 'center',
+      },
+});
 
 const PingPong = () => {
+    const classes = useStyles();
+    const [loading, setLoading] = useState(true);
     const [ballPosition, setBallPosition] = useState({ x: 400, y: 250 });
     const [leftPaddlePosition, setLeftPaddlePosition] = useState(200);
     const [rightPaddlePosition, setRightPaddlePosition] = useState(200);
@@ -101,6 +109,12 @@ const PingPong = () => {
     },[score]);
   
   return (
+    <>
+    {loading ? (
+      <div className={classes.loader}>
+        <MyLoader />
+      </div>
+    ) : (
     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
       <div
         ref={leftPaddleRef}
@@ -136,11 +150,13 @@ const PingPong = () => {
           borderRadius: '50%',
         }}
       />
-      <div>
-        <p>Left Score: {score.left}</p>
-        <p>Right Score: {score.right}</p>
+        <div>
+          <p>Left Score: {score.left}</p>
+          <p>Right Score: {score.right}</p>
+        </div>
       </div>
-    </div>
+      )}
+    </>
   );
 }
 
