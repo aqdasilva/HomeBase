@@ -108,6 +108,12 @@ const PingPong = () => {
       }
     },[score]);
   
+    useEffect(() => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    }, []);
+    
   return (
     <>
     {loading ? (
