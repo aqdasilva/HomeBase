@@ -7,10 +7,11 @@ import OSStack from './components/osStack';
 import MyLoader from './components/MyLoader';
 import { GiFireSilhouette } from "react-icons/gi";
 import adlogo from './images/adlogo.png';
+import peak_background from './images/peak_background.jpg';
 
 const useStyles = makeStyles((theme) => ({
   App: {
-    backgroundImage: `url(${adlogo})`,
+    backgroundImage: `url(${peak_background})`,
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center',
